@@ -220,39 +220,134 @@ body {
   margin-bottom: 14px;
 }
 
-.skills-scroll-hint {
+.skills-drag-hint {
+  display: flex;
+  align-items: center;
+  gap: 4px;
   font-size: 11px;
   color: var(--text-dim);
   font-family: 'JetBrains Mono', monospace;
+  font-style: italic;
+  opacity: 0.7;
+  animation: hint-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes hint-pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
 }
 
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  position: relative;
+  min-height: 32px;
 }
 
+/* ── Drag-and-drop ── */
 .skill-tag {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   padding: 5px 12px;
   border-radius: 6px;
   font-size: 12px;
   font-weight: 500;
   background: rgba(255,255,255,0.04);
   border: 1px solid var(--border);
-  color: var(--c, var(--text-muted));
-  cursor: default;
-  transition: transform var(--transition), background var(--transition), border-color var(--transition), box-shadow var(--transition);
+  color: var(--text-muted);
+  cursor: grab;
+  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
   user-select: none;
+  touch-action: none;
+  position: relative;
 }
 
 .skill-tag:hover {
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.02);
   background: rgba(255,255,255,0.08);
-  border-color: rgba(255,255,255,0.2);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  border-color: rgba(255,255,255,0.22);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  color: var(--text);
+}
+
+.skill-tag:active,
+.skill-tag.dragging {
+  cursor: grabbing;
+  opacity: 0.35;
+  transform: scale(0.95);
+  border-style: dashed;
+  box-shadow: none;
+}
+
+/* Drop placeholder slot */
+.skill-tag.drag-over-before::before,
+.skill-tag.drag-over-after::after {
+  content: '';
+  display: block;
+  width: 3px;
+  height: 100%;
+  background: rgba(255,255,255,0.6);
+  border-radius: 2px;
+  position: absolute;
+  top: 0;
+  animation: slot-flash 0.3s ease;
+}
+
+.skill-tag.drag-over-before::before { left: -6px; }
+.skill-tag.drag-over-after::after  { right: -6px; }
+
+@keyframes slot-flash {
+  from { opacity: 0; transform: scaleY(0.4); }
+  to   { opacity: 1; transform: scaleY(1); }
+}
+
+/* Floating drag ghost */
+.skill-drag-ghost {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  background: rgba(30,30,30,0.96);
+  border: 1.5px solid rgba(255,255,255,0.35);
+  color: #fff;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08);
+  transform: rotate(-3deg) scale(1.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+  transition: transform 0.05s ease;
+}
+
+/* ── Skill Icons ── */
+.skill-icon {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+
+.skill-icon-invert {
+  filter: invert(1) brightness(1.2);
+}
+
+.skill-icon-text {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  line-height: 1;
 }
 
 /* ─────────────────────────────
