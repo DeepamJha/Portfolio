@@ -43,29 +43,93 @@
       <div class="skills-section" id="skills">
         <div class="skills-header">
           <span class="section-label">Skills</span>
-          <span class="skills-scroll-hint">scroll →</span>
+          <span class="skills-drag-hint">
+            <svg width="32" height="16" viewBox="0 0 32 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8 Q10 2 18 8 Q26 14 30 8" stroke="#666" stroke-width="1.2" fill="none" stroke-dasharray="2 2"/><path d="M27 5 L31 8 L27 11" stroke="#666" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            drag me!
+          </span>
         </div>
-        <div class="skills-grid">
-          <span class="skill-tag" style="--c:#61dafb">⚛ React</span>
-          <span class="skill-tag" style="--c:#fff">▲ Next.js</span>
-          <span class="skill-tag" style="--c:#3178c6">TS TypeScript</span>
-          <span class="skill-tag" style="--c:#68a063">⬡ Node.js</span>
-          <span class="skill-tag" style="--c:#4ea94b">🍃 MongoDB</span>
-          <span class="skill-tag" style="--c:#f7df1e">JS JavaScript</span>
-          <span class="skill-tag" style="--c:#38bdf8">💧 CSS / SCSS</span>
-          <span class="skill-tag" style="--c:#e34c26">🔥 HTML5</span>
-          <span class="skill-tag" style="--c:#ff6b6b">🌐 REST APIs</span>
-          <span class="skill-tag" style="--c:#764abc">⚡ Redux</span>
-          <span class="skill-tag" style="--c:#00d8ff">🐳 Docker</span>
-          <span class="skill-tag" style="--c:#ff9900">☁ AWS</span>
-          <span class="skill-tag" style="--c:#47a248">🍃 Express.js</span>
-          <span class="skill-tag" style="--c:#336791">🐘 PostgreSQL</span>
-          <span class="skill-tag" style="--c:#00c3ad">🔷 Prisma</span>
-          <span class="skill-tag" style="--c:#c0392b">🔴 Redis</span>
-          <span class="skill-tag" style="--c:#f05032">🔀 Git</span>
-          <span class="skill-tag" style="--c:#a259ff">✦ Figma</span>
-          <span class="skill-tag" style="--c:#fff">◈ GraphQL</span>
-          <span class="skill-tag" style="--c:#25d1da">🔌 Socket.io</span>
+        <div class="skills-grid" id="skills-grid">
+          <div class="skill-tag" draggable="true" data-skill="React">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="skill-icon" alt="React"/> React
+          </div>
+          <div class="skill-tag" draggable="true" data-skill="Next.js">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" class="skill-icon skill-icon-invert" alt="Next.js"/> Next.js
+          </div>
+          <div class="skill-tag" draggable="true" data-skill="TypeScript">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" class="skill-icon" alt="TypeScript"/> TypeScript
+          </div>
+          <div class="skill-tag" draggable="true" data-skill="Node.js">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="skill-icon" alt="Node.js"/> Node.js
+          </div>
+          <div class="skill-tag" draggable="true" data-skill="MongoDB">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" class="skill-icon" alt="MongoDB"/> MongoDB
+          </div>
+          <div class="skill-tag" draggable="true" data-skill="JavaScript">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="skill-icon" alt="JavaScript"/> JavaScript
+          </div>
+          <div class="skill-tag" draggable="true" data-skill="GSAP">
+            <span class="skill-icon-text" style="color:#88ce02;font-weight:800;font-size:10px">GS</span> GSAP
+          </div>
+          <div class="skill-tag" draggable="true" data-skill="Supabase">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg" class="skill-icon" alt="Supabase"/> Supabase
+          </div>
+          <div class="skill-tag" draggable="true" data-skill="Clerk">
+            <span class="skill-icon-text" style="color:#6c47ff;font-weight:800;font-size:11px">C</span> Clerk
+          </div>
+          <div class="skill-tag" draggable="true" data-skill="React Native">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="skill-icon" alt="React Native"/> React Native
+          </div>
+          <div class="skill-tag" draggable="true" data-skill="Expo">
+            <span class="skill-icon-text" style="color:#fff;font-weight:800;font-size:11px">E</span> Expo
+          </div>
+          <div class="skill-tag" draggable="true" data-skill="Bullmq">
+            <span class="skill-icon-text" style="color:#e01e5a;font-weight:800;font-size:10px">B</span> Bullmq
+          </div>
+          <div class="skill-tag" draggable="true" data-skill="Drizzle ORM">
+            <span class="skill-icon-text" style="color:#c5f74f;font-weight:800;font-size:10px">⋈</span> Drizzle ORM
+          </div>
+          <div class="skill-tag" draggable="true" data-skill="Zustand">
+            <span class="skill-icon-text" style="color:#ff6b35;font-weight:800;font-size:11px">Z</span> Zustand
+          </div>
+          <div class="skill-tag" draggable="true" data-skill="Docker">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" class="skill-icon" alt="Docker"/> Docker
+          </div>
+          <div class="skill-tag" draggable="true" data-skill="GraphQL">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" class="skill-icon" alt="GraphQL"/> GraphQL
+          </div>
+          <div class="skill-tag" draggable="true" data-skill="Tailwind CSS">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" class="skill-icon" alt="Tailwind"/> Tailwind CSS
+          </div>
+          <div class="skill-tag" draggable="true" data-skill="Redis">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" class="skill-icon" alt="Redis"/> Redis
+          </div>
+          <div class="skill-tag" draggable="true" data-skill="AWS">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" class="skill-icon skill-icon-invert" alt="AWS"/> AWS
+          </div>
+          <div class="skill-tag" draggable="true" data-skill="Express.js">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" class="skill-icon skill-icon-invert" alt="Express.js"/> Express.js
+          </div>
+          <div class="skill-tag" draggable="true" data-skill="Bit Bucket">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bitbucket/bitbucket-original.svg" class="skill-icon" alt="Bitbucket"/> Bit Bucket
+          </div>
+          <div class="skill-tag" draggable="true" data-skill="Figma">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" class="skill-icon" alt="Figma"/> Figma
+          </div>
+          <div class="skill-tag" draggable="true" data-skill="Prometheus">
+            <span class="skill-icon-text" style="color:#e6522c;font-weight:800;font-size:13px">⬡</span> Prometheus
+          </div>
+          <div class="skill-tag" draggable="true" data-skill="Grafana">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg" class="skill-icon" alt="Grafana"/> Grafana
+          </div>
+          <div class="skill-tag" draggable="true" data-skill="PostgreSQL">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" class="skill-icon" alt="PostgreSQL"/> PostgreSQL
+          </div>
+          <div class="skill-tag" draggable="true" data-skill="Socket.io">
+            <span class="skill-icon-text" style="color:#fff;font-weight:800;font-size:13px">⚡</span> Socket.io
+          </div>
+          <div class="skill-tag" draggable="true" data-skill="Shadcn UI">
+            <span class="skill-icon-text" style="color:#fff;font-weight:800;font-size:11px">◈</span> Shadcn UI
+          </div>
         </div>
       </div>
 
