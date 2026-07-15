@@ -351,7 +351,7 @@ body {
 }
 
 /* ─────────────────────────────
-   WORK EXPERIENCE
+   PROJECTS
 ───────────────────────────── */
 .exp-section {}
 
@@ -437,6 +437,65 @@ body {
   font-size: 11px;
   color: var(--text-dim);
   font-family: 'JetBrains Mono', monospace;
+}
+
+/* ── Project tech tags ── */
+.exp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 6px 0 8px;
+}
+
+.exp-tag {
+  font-size: 10.5px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--text-dim);
+  font-family: 'JetBrains Mono', monospace;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.exp-tag:hover {
+  background: rgba(255,255,255,0.09);
+  color: var(--text-muted);
+}
+
+/* ── Bullet list ── */
+.exp-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.exp-bullets li {
+  font-size: 12.5px;
+  color: var(--text-dim);
+  line-height: 1.55;
+  padding-left: 14px;
+  position: relative;
+}
+
+.exp-bullets li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: rgba(255,255,255,0.2);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* ── Live badge ── */
+.exp-type-live {
+  color: #34d399 !important;
+  background: rgba(52,211,153,0.1) !important;
+  border-color: rgba(52,211,153,0.3) !important;
 }
 
 /* ─────────────────────────────
@@ -804,7 +863,7 @@ body {
 .bottom-nav {
   position: fixed;
   bottom: 24px;
-  left: 50%;
+  left: 50vw;
   transform: translateX(-50%);
   z-index: 100;
   display: flex;
@@ -818,6 +877,7 @@ body {
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 8px 32px rgba(0,0,0,0.4);
   transition: background 0.3s ease, border-color 0.3s ease;
+  white-space: nowrap;
 }
 
 .nav-item {
