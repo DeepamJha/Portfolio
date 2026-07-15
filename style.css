@@ -863,8 +863,10 @@ body {
 .bottom-nav {
   position: fixed;
   bottom: 24px;
-  left: 50vw;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: fit-content;
   z-index: 100;
   display: flex;
   align-items: center;
