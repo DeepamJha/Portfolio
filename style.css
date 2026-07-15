@@ -559,7 +559,7 @@ body {
   font-size: 14px;
   color: var(--text-muted);
   line-height: 1.7;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .hire-text strong {
@@ -567,67 +567,116 @@ body {
   font-weight: 600;
 }
 
-.roles-diagram {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 16px;
+/* ── Flowchart ── */
+.flowchart-wrap {
   background: rgba(255,255,255,0.02);
   border: 1px dashed var(--border-dashed);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius);
+  padding: 24px 20px;
 }
 
-.roles-center-box {
+.flowchart-title {
   font-size: 13px;
-  font-weight: 600;
-  color: var(--text);
-  padding: 10px 16px;
-  border: 1.5px solid rgba(255,255,255,0.2);
-  border-radius: 8px;
-  white-space: nowrap;
-  background: rgba(255,255,255,0.04);
+  font-weight: 700;
+  color: var(--text-muted);
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-family: 'JetBrains Mono', monospace;
 }
 
-.roles-lines {
+.flowchart {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  flex: 1;
-}
-
-.role-line {
-  display: flex;
   align-items: center;
   gap: 0;
 }
 
-.role-connector {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(to right, rgba(255,255,255,0.3), rgba(255,255,255,0.1));
-  position: relative;
+/* ── Flow arrow ── */
+.flow-arrow {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1;
+  margin: 4px 0;
+  opacity: 0.6;
 }
 
-.role-box {
-  font-size: 12px;
+/* ── Single step ── */
+.flow-step {
+  animation: fade-in-up 0.4s ease calc(var(--delay, 0s)) both;
+}
+
+/* ── Node box ── */
+.flow-node {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+  font-size: 13px;
   font-weight: 600;
   color: var(--text);
-  padding: 8px 14px;
-  border: 1.5px solid rgba(255,255,255,0.15);
-  border-radius: 8px;
-  background: rgba(255,255,255,0.05);
   white-space: nowrap;
-  transition: border-color var(--transition), background var(--transition);
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  cursor: default;
 }
 
-.role-box:hover {
-  border-color: rgba(255,255,255,0.35);
+.flow-node:hover {
+  border-color: rgba(255,255,255,0.28);
   background: rgba(255,255,255,0.08);
+  transform: translateY(-1px);
 }
 
-.role-box-1 { border-color: rgba(96,165,250,0.4); }
-.role-box-2 { border-color: rgba(167,139,250,0.4); }
-.role-box-3 { border-color: rgba(52,211,153,0.4); }
+.flow-node-sm {
+  font-size: 12px;
+  padding: 7px 14px;
+}
+
+/* Highlighted node (Deployment) */
+.flow-node-highlight {
+  border-color: rgba(99,252,173,0.45);
+  background: rgba(99,252,173,0.06);
+  color: #6fffad;
+  box-shadow: 0 0 18px rgba(99,252,173,0.1);
+}
+
+.flow-node-highlight:hover {
+  border-color: rgba(99,252,173,0.7);
+  background: rgba(99,252,173,0.12);
+  box-shadow: 0 0 28px rgba(99,252,173,0.2);
+}
+
+.flow-icon {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.flow-label {}
+
+/* ── Horizontal row of nodes ── */
+.flow-row {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.flow-row-connector {
+  width: 24px;
+  height: 1px;
+  background: rgba(255,255,255,0.18);
+  flex-shrink: 0;
+}
+
+.flow-row .flow-step {
+  /* no extra margins needed */
+}
+
+
 
 /* ─────────────────────────────
    EDUCATION
