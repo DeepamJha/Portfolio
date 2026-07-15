@@ -1,0 +1,214 @@
+/* ===================================================
+   PAGE LOADER – loader.css
+   Deepam Jha Portfolio
+=================================================== */
+
+/* ── Overlay ── */
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1),
+              transform 0.7s cubic-bezier(0.4,0,0.2,1);
+  will-change: opacity, transform;
+}
+
+.page-loader.hide {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.04);
+}
+
+/* ── Background scan-line effect ── */
+.page-loader::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(255,255,255,0.012) 3px,
+    rgba(255,255,255,0.012) 4px
+  );
+  pointer-events: none;
+  animation: scan-move 4s linear infinite;
+}
+
+@keyframes scan-move {
+  from { background-position: 0 0; }
+  to   { background-position: 0 100px; }
+}
+
+/* ── Center content ── */
+.loader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  animation: loader-appear 0.6s ease both;
+}
+
+@keyframes loader-appear {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Initials logo ring ── */
+.loader-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  border: 1.5px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.04);
+  position: relative;
+  animation: logo-pulse 2s ease-in-out infinite;
+}
+
+.loader-logo::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 26px;
+  border: 1px dashed rgba(255,255,255,0.1);
+  animation: logo-spin 8s linear infinite;
+}
+
+.loader-logo::after {
+  content: '';
+  position: absolute;
+  inset: -16px;
+  border-radius: 34px;
+  border: 1px dashed rgba(255,255,255,0.05);
+  animation: logo-spin 12s linear infinite reverse;
+}
+
+@keyframes logo-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes logo-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+  50%       { box-shadow: 0 0 28px 4px rgba(255,255,255,0.06); }
+}
+
+.loader-initials {
+  font-family: 'Inter', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  animation: initials-glow 2s ease-in-out infinite;
+}
+
+@keyframes initials-glow {
+  0%, 100% { text-shadow: none; }
+  50%       { text-shadow: 0 0 20px rgba(255,255,255,0.5); }
+}
+
+/* ── Name typewriter ── */
+.loader-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  min-height: 36px;
+  text-align: center;
+}
+
+/* ── Role line ── */
+.loader-role {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.loader-cursor {
+  animation: blink 0.8s step-end infinite;
+  color: rgba(255,255,255,0.6);
+  font-weight: 300;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── Progress bar ── */
+.loader-bar-wrap {
+  width: 200px;
+  height: 2px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.loader-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, rgba(255,255,255,0.3), rgba(255,255,255,0.9));
+  border-radius: 2px;
+  transition: width 0.05s linear;
+  position: relative;
+}
+
+.loader-bar::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 8px 2px rgba(255,255,255,0.7);
+}
+
+/* ── Counter ── */
+.loader-counter {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 0.1em;
+}
+
+/* ── Site content reveal ── */
+body.loaded .container,
+body.loaded .bottom-nav {
+  animation: site-reveal 0.6s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+body.loaded .container { animation-delay: 0.05s; }
+body.loaded .bottom-nav { animation-delay: 0.2s; }
+
+@keyframes site-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hide content before load */
+body:not(.loaded) .container,
+body:not(.loaded) .bottom-nav {
+  opacity: 0;
+}

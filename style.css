@@ -890,76 +890,403 @@ body {
    ANIMATIONS
 ───────────────────────────── */
 @keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .card {
-  animation: fade-in-up 0.4s ease both;
+  animation: fade-in-up 0.5s ease both;
 }
-
 .card:nth-child(1) { animation-delay: 0.05s; }
-.card:nth-child(2) { animation-delay: 0.1s; }
-.card:nth-child(3) { animation-delay: 0.15s; }
-.card:nth-child(4) { animation-delay: 0.2s; }
+.card:nth-child(2) { animation-delay: 0.12s; }
+.card:nth-child(3) { animation-delay: 0.18s; }
+.card:nth-child(4) { animation-delay: 0.24s; }
+.card:nth-child(5) { animation-delay: 0.3s; }
 
 /* ─────────────────────────────
-   RESPONSIVE
+   RESPONSIVE – 768px (Tablet)
 ───────────────────────────── */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  /* Container */
   .container {
-    padding: 20px 12px 140px;
+    padding: 28px 16px 130px;
+    gap: 14px;
   }
 
+  /* Hero */
+  .hero-top {
+    gap: 14px;
+  }
+
+  .hero-name {
+    font-size: 20px;
+  }
+
+  .hero-bio p {
+    font-size: 13px;
+  }
+
+  /* Skills */
+  .skills-grid {
+    gap: 7px;
+  }
+
+  .skill-tag {
+    font-size: 11.5px;
+    padding: 5px 10px;
+  }
+
+  /* Proof of Work */
+  .proof-title {
+    font-size: 24px;
+  }
+
+  .proof-card {
+    min-height: 160px;
+  }
+
+  .proof-card-title {
+    font-size: 22px;
+  }
+
+  .proof-card-desc {
+    font-size: 11.5px;
+  }
+
+  /* Flowchart */
+  .flowchart-wrap {
+    padding: 18px 14px;
+  }
+
+  .flow-node {
+    font-size: 12px;
+    padding: 8px 14px;
+  }
+
+  .flow-node-sm {
+    font-size: 11px;
+    padding: 6px 11px;
+  }
+
+  .flow-row-connector {
+    width: 16px;
+  }
+
+  /* Education */
+  .edu-name {
+    font-size: 12px;
+  }
+
+  /* Contact */
+  .contact-methods {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contact-btn {
+    justify-content: center;
+  }
+
+  /* Bottom nav */
+  .bottom-nav {
+    gap: 2px;
+    padding: 7px 10px;
+  }
+
+  .nav-item {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+/* ─────────────────────────────
+   RESPONSIVE – 480px (Mobile)
+───────────────────────────── */
+@media (max-width: 480px) {
+  /* Container */
+  .container {
+    padding: 16px 12px 120px;
+    gap: 12px;
+  }
+
+  /* Card */
   .card {
-    padding: 20px;
+    padding: 18px 16px;
+    border-radius: 12px;
+  }
+
+  /* Hero */
+  .hero-top {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .avatar {
+    width: 60px;
+    height: 60px;
   }
 
   .hero-name {
     font-size: 18px;
   }
 
+  .hero-role {
+    font-size: 12px;
+  }
+
+  .hero-bio p {
+    font-size: 13px;
+  }
+
+  .badge-inline {
+    font-size: 11px;
+    padding: 2px 6px;
+  }
+
+  /* Divider */
+  .divider {
+    margin: 18px 0;
+  }
+
+  /* Skills */
+  .skills-grid {
+    gap: 6px;
+  }
+
+  .skill-tag {
+    font-size: 11px;
+    padding: 4px 9px;
+    gap: 5px;
+  }
+
+  .skill-icon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .skill-icon-text {
+    width: 12px;
+    height: 12px;
+    font-size: 9px !important;
+  }
+
+  /* Experience */
+  .exp-item {
+    gap: 10px;
+  }
+
+  .exp-logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+
+  .exp-company {
+    font-size: 13px;
+  }
+
+  .exp-desc {
+    font-size: 12px;
+  }
+
+  /* Proof of Work */
+  .proof-title {
+    font-size: 22px;
+  }
+
+  .proof-sub {
+    font-size: 12px;
+  }
+
+  .proof-card {
+    min-height: 140px;
+  }
+
+  .proof-card-content {
+    padding: 16px 18px;
+    min-height: 140px;
+  }
+
   .proof-card-title {
-    font-size: 20px;
+    font-size: 18px;
+    gap: 6px;
   }
 
-  .roles-diagram {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
+  .proof-card-title svg {
+    width: 16px;
+    height: 16px;
   }
 
-  .roles-center-box {
-    text-align: center;
+  .proof-card-desc {
+    font-size: 11px;
+    max-width: 100%;
   }
 
-  .role-line {
-    justify-content: flex-end;
+  /* Hire Me / Flowchart */
+  .hire-text {
+    font-size: 13px;
+    margin-bottom: 18px;
   }
 
-  .role-connector {
+  .flowchart-wrap {
+    padding: 16px 10px;
+  }
+
+  .flowchart-title {
+    font-size: 11px;
+    margin-bottom: 16px;
+  }
+
+  .flow-node {
+    font-size: 11.5px;
+    padding: 7px 12px;
+    gap: 6px;
+  }
+
+  .flow-node-sm {
+    font-size: 10.5px;
+    padding: 6px 10px;
+    gap: 5px;
+  }
+
+  .flow-icon {
+    font-size: 13px;
+  }
+
+  .flow-row {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .flow-row-connector {
     display: none;
   }
 
-  .bottom-nav {
-    bottom: 12px;
-    gap: 2px;
-    padding: 6px 8px;
+  .flow-row .flow-step {
+    flex: 0 0 auto;
   }
 
-  .nav-item {
-    width: 32px;
-    height: 32px;
+  .flow-arrow {
+    font-size: 13px;
+    margin: 2px 0;
+  }
+
+  /* Education */
+  .edu-item {
+    gap: 10px;
+  }
+
+  .edu-logo {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 8px;
+  }
+
+  .edu-name {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .edu-desc {
+    font-size: 11px;
   }
 
   .edu-date {
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  /* Section labels */
+  .section-label {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+
+  /* Contact */
+  .contact-section {
+    text-align: left;
+  }
+
+  .contact-sub {
+    font-size: 13px;
+  }
+
+  .contact-methods {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .contact-btn {
+    padding: 10px 16px;
+    font-size: 13px;
+    justify-content: flex-start;
+  }
+
+  /* Bottom nav — compact */
+  .bottom-nav {
+    bottom: 10px;
+    gap: 1px;
+    padding: 5px 7px;
+    border-radius: 40px;
+  }
+
+  .nav-item {
+    width: 30px;
+    height: 30px;
+  }
+
+  .nav-item svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  /* Hide tooltips on mobile */
+  .nav-item::after {
     display: none;
+  }
+}
+
+/* ─────────────────────────────
+   RESPONSIVE – 360px (Small phones)
+───────────────────────────── */
+@media (max-width: 360px) {
+  .container {
+    padding: 12px 10px 110px;
+  }
+
+  .card {
+    padding: 14px 12px;
+  }
+
+  .hero-name {
+    font-size: 16px;
+  }
+
+  .proof-card-title {
+    font-size: 16px;
+  }
+
+  .flow-node {
+    font-size: 10.5px;
+    padding: 6px 10px;
+  }
+
+  .bottom-nav {
+    gap: 0;
+    padding: 4px 5px;
+  }
+
+  .nav-item {
+    width: 27px;
+    height: 27px;
+  }
+
+  .nav-item svg {
+    width: 15px;
+    height: 15px;
   }
 }
 

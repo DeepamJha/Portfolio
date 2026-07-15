@@ -2,6 +2,88 @@
 // DEEPAM JHA PORTFOLIO – main.js
 // ───────────────────────────────────────────
 
+// ═══════════════════════════════════════════
+//  PAGE LOADER
+// ═══════════════════════════════════════════
+(function () {
+  const loader   = document.getElementById('page-loader');
+  const barEl    = document.getElementById('loader-bar');
+  const counter  = document.getElementById('loader-counter');
+  const nameEl   = document.getElementById('loader-name');
+  const initialsEl = document.getElementById('loader-initials');
+
+  if (!loader) return;
+
+  const FULL_NAME   = 'Deepam Jha';
+  const TOTAL_MS    = 2200;   // total loader duration
+  const TYPE_START  = 400;    // when typewriter begins (ms)
+  const TYPE_SPEED  = 60;     // ms per character
+
+  let progress  = 0;
+  let startTime = null;
+  let rafId     = null;
+  let typed     = 0;
+  let typingDone = false;
+
+  // ── Progress animation ──────────────────
+  function animateProgress(ts) {
+    if (!startTime) startTime = ts;
+    const elapsed = ts - startTime;
+    const raw = elapsed / TOTAL_MS;
+
+    // Ease-out-quart for progress
+    progress = Math.min(1, 1 - Math.pow(1 - raw, 3));
+    const pct = Math.round(progress * 100);
+
+    barEl.style.width     = pct + '%';
+    counter.textContent   = pct + '%';
+
+    // Typewriter effect once loader has warmed up
+    if (elapsed >= TYPE_START && !typingDone) {
+      const charsToShow = Math.min(
+        FULL_NAME.length,
+        Math.floor((elapsed - TYPE_START) / TYPE_SPEED)
+      );
+      if (charsToShow !== typed) {
+        typed = charsToShow;
+        nameEl.textContent = FULL_NAME.slice(0, typed);
+      }
+      if (typed >= FULL_NAME.length) typingDone = true;
+    }
+
+    if (progress < 1) {
+      rafId = requestAnimationFrame(animateProgress);
+    } else {
+      // Ensure full name is shown
+      nameEl.textContent = FULL_NAME;
+      barEl.style.width  = '100%';
+      counter.textContent = '100%';
+      // Small pause then dismiss
+      setTimeout(dismissLoader, 280);
+    }
+  }
+
+  // ── Dismiss loader ──────────────────────
+  function dismissLoader() {
+    loader.classList.add('hide');
+    document.body.classList.add('loaded');
+
+    // Remove from DOM after transition
+    loader.addEventListener('transitionend', () => {
+      loader.remove();
+    }, { once: true });
+  }
+
+  // Start
+  rafId = requestAnimationFrame(animateProgress);
+
+  // Safety fallback
+  setTimeout(() => {
+    if (rafId) cancelAnimationFrame(rafId);
+    dismissLoader();
+  }, TOTAL_MS + 800);
+})();
+
 // Theme toggle
 function toggleTheme() {
   const current = document.documentElement.getAttribute('data-theme');
