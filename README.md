@@ -1,13 +1,6 @@
 # Deepam Jha – Portfolio
 
-A modern, dark-themed personal portfolio website built with **HTML, CSS, and vanilla JavaScript**.
-
-## Tech Stack
-
-- HTML5 (semantic)
-- Vanilla CSS (custom design system, glassmorphism, animations)
-- Vanilla JavaScript (theme toggle, scroll nav, filter logic)
-- Google Fonts – Inter + JetBrains Mono
+ 
 
 ## Sections
 
