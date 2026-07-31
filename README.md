@@ -1,9 +1,6 @@
 # Deepam Jha – Portfolio
-
  
-
 ## Sections
-
 - **About** – Hero with avatar, bio, and taglines
 - **Skills** – 20+ animated skill tags (CSS → React → Next.js → Node.js → Docker → AWS…)
 - **Work Experience** – Timeline of roles
@@ -14,14 +11,12 @@
 - **Projects Page** – 4 full project cards with filter tabs
 
 ## Pages
-
 | Page | Description |
 |------|-------------|
 | `index.html` | Main portfolio page |
 | `projects.html` | Detailed projects with filter tabs |
 
 ## Features
-
 - 🌙 Dark / Light mode toggle (persisted in localStorage)
 - ⚡ Smooth scroll + active nav highlight
 - 🎨 Micro-animations on skill tags and cards
@@ -29,5 +24,7 @@
 - 💬 Floating pill bottom nav with tooltips
 
 ## Live
+[portfolio-ixhe.vercel.app](https://portfolio-ixhe.vercel.app/)
 
-[deepamjha.dev](https://deepamjha.dev) *(coming soon)*
+ 
+ 
