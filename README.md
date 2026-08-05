@@ -1,30 +1,31 @@
-# Deepam Jha – Portfolio
+# Deepam Jha — Portfolio
  
-## Sections
-- **About** – Hero with avatar, bio, and taglines
-- **Skills** – 20+ animated skill tags (CSS → React → Next.js → Node.js → Docker → AWS…)
-- **Work Experience** – Timeline of roles
-- **Proof of Work** – Project category banners
-- **Hire Me** – Role diagram
-- **Education** – Academic history
-- **Contact** – Links and email
-- **Projects Page** – 4 full project cards with filter tabs
-
+Chemical Engineering student (GGSIPU, 2027) transitioning into frontend/fullstack development. Self-taught, project-driven, building toward a software engineering role.
+ 
+[portfolio-ixhe.vercel.app](https://portfolio-ixhe.vercel.app/)
+ 
 ## Pages
+ 
 | Page | Description |
 |------|-------------|
-| `index.html` | Main portfolio page |
-| `projects.html` | Detailed projects with filter tabs |
+| `index.html` | About, skills, experience, projects overview, education, contact |
+| `projects.html` | Full project list with category filters |
 
-## Features
-- 🌙 Dark / Light mode toggle (persisted in localStorage)
-- ⚡ Smooth scroll + active nav highlight
-- 🎨 Micro-animations on skill tags and cards
-- 📱 Fully responsive
-- 💬 Floating pill bottom nav with tooltips
+## Open Source
 
-## Live
-[portfolio-ixhe.vercel.app](https://portfolio-ixhe.vercel.app/)
+- Merged contributions to the **NanoCoder** open-source project
+- Experience working with large TypeScript/Node.js codebases
+- Familiar with GitHub PR workflow, code reviews, testing, and issue-driven development
 
+## Setup
+
+```bash
+git clone https://github.com/DeepamJha/<repo-name>
+cd <repo-name>
+open index.html
+## Setup
  
- 
+```bash
+git clone https://github.com/DeepamJha/<repo-name>
+cd <repo-name>
+open index.html
